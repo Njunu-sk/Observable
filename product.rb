@@ -21,20 +21,19 @@ class Product
 end
 
 class Outofstock
-  def initialize(restock, limit)
-    @limit = limit
+  def initialize(restock)
     restock.add_observer(self)
   end
 end
 
 class Notification < Outofstock
   def update(time, product)
-    if product < @limit
+    if product.zero?
       print "----#{time.to_s}: Product is out of stock!! \n"
     end
   end
 end
 
 restock = Restock.new
-Notification.new(restock, 4)
+Notification.new(restock)
 restock.run

@@ -11,6 +11,6 @@
 
 ### Product Example
 
-- A product object, qunatity is recorded
+- A product object, quantity is recorded
 
 - When product quantity is zero then a notification will be thrown.

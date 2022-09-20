@@ -2,21 +2,13 @@ require 'observer'
 
 class Restock
   include Observable
-  attr_reader :quantity
 
   def run
-    product = Product.fetch(@quantity)
-
+    product = rand(0..5)
     if product.zero?
       changed
       notify_observers(Time.now, product)
     end
-  end
-end
-
-class Product
-  def self.fetch(quantity)
-    rand(0..5)
   end
 end
 
